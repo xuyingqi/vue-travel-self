@@ -58,6 +58,10 @@
           id: '0010',
           imgUrl: 'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
           desc: '泡温泉'
+        }, {
+          id: '0011',
+          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
+          desc: '泡温泉'
         }]
       }
     },
