@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <v-header></v-header>
+    <swiper></swiper>
     <div class="tab">
       <router-link to="./home">首页</router-link>
       <router-link to="./list">列表</router-link>
@@ -13,9 +14,11 @@
 
 <script>
   import header from 'components/header/header'
+  import swiper from 'components/swiper/swiper'
   export default {
     components: {
-      'v-header': header
+      'v-header': header,
+      swiper
     }
   }
 </script>
