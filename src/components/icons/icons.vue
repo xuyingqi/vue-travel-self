@@ -62,6 +62,10 @@
           id: '0011',
           imgUrl: 'http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png',
           desc: '泡温泉'
+        }, {
+          id: '0012',
+          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png',
+          desc: '动植园'
         }]
       }
     },
