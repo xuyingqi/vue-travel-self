@@ -18,7 +18,11 @@
       return {
         swiperOption: {
           pagination: '.swiper-pagination',
-          loop: true
+          loop: true,
+          autoplay: 3000,
+          // paginationClickable: true,
+          disableOnInteraction: false,
+          autoplayDisableOnInteraction: false
         },
         swiperList: [{
           id: '0001',
