@@ -1,7 +1,7 @@
 # vue-travel-self
 
-<<<<<<< HEAD
-> 去哪儿网111
+
+> 去哪儿网
 
 ## Build Setup
 
@@ -56,4 +56,3 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
 5. 码云官方提供的使用手册 [http://git.mydoc.io/](http://git.mydoc.io/)
 6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
->>>>>>> 24dba330b85ccc43104355b8b0f5f79978285812
