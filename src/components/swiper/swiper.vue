@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" ref="mySwiper">
+    <swiper :options="swiperOption" ref="mySwiper" v-if="showSwiper">
       <!-- slides -->
       <swiper-slide v-for="item in swiperList" :key="item.id" data-swiper-autoplay="2000">
         <img class="swiper-img" :src="item.imgUrl">
@@ -14,6 +14,11 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'carrousel',
+    props: {
+      swiperList: {
+        type: Array
+      }
+    },
     data() {
       return {
         swiperOption: {
@@ -23,20 +28,16 @@
           // paginationClickable: true,
           disableOnInteraction: false,
           autoplayDisableOnInteraction: false
-        },
-        swiperList: [{
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1802/e3/62ce7362ca051d02.jpg_640x200_6db551b7.jpg'
-        }, {
-          id: '0002',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1801/93/ce59d182aca07102.jpg_640x200_ba03d44c.jpg'
-        }]
+        }
       }
     },
     computed: {
-      swiper() {
-        return this.$refs.mySwiper.swiper
+      showSwiper() {
+        return this.swiperList.length
       }
+     /* swiper() {
+        return this.$refs.mySwiper.swiper
+      } */
     },
     mounted() {
       // current swiper instance
