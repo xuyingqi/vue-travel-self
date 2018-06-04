@@ -85,6 +85,7 @@
   @import "~common/styles/varibles.styl"
   @import "~common/styles/mixins.styl"
   .icons
+    margin-top: 10px
     width: 100%
     height: 0
     padding-bottom: 50%
