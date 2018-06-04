@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
       <swiper-slide  v-for="page in pages" :key="page.id">
         <div class="icon" v-for="item in page" :key="item.id">
           <div class="icon-img">
@@ -14,10 +14,15 @@
 </template>
 
 <script type="text/ecmascript-6">
-  // import SwiperSlide from '../../../node_modules/vue-awesome-swiper/src/slide.vue'
 
   export default {
-//    components: {SwiperSlide},
+    data() {
+      return {
+        swiperOption: {
+          loop: false
+        }
+      }
+    },
     props: {
       iconList: {
         type: Array

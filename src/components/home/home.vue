@@ -9,11 +9,11 @@
 </template>
 
 <script>
-  import header from 'components/header/header'
-  import swiper from 'components/swiper/swiper'
-  import icons from 'components/icons/icons'
-  import recommend from 'components/recommend/recommend'
-  import weekend from 'components/weekend/weekend'
+  import header from 'components/home/header/header'
+  import swiper from 'components/home/swiper/swiper'
+  import icons from 'components/home/icons/icons'
+  import recommend from 'components/home/recommend/recommend'
+  import weekend from 'components/home/weekend/weekend'
   import axios from 'axios'
 
   export default {
