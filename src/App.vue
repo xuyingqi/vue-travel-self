@@ -3,13 +3,15 @@
     <v-header></v-header>
     <swiper></swiper>
     <icons></icons>
-    <div class="tab">
+    <recommend></recommend>
+    <weekend></weekend>
+   <!-- <div class="tab">
       <router-link to="./home">首页</router-link>
       <router-link to="./list">列表</router-link>
     </div>
     <keep-alive>
       <router-view></router-view>
-    </keep-alive>
+    </keep-alive> -->
   </div>
 </template>
 
@@ -17,11 +19,15 @@
   import header from 'components/header/header'
   import swiper from 'components/swiper/swiper'
   import icons from 'components/icons/icons'
+  import recommend from 'components/recommend/recommend'
+  import weekend from 'components/weekend/weekend'
   export default {
     components: {
       'v-header': header,
       swiper,
-      icons
+      icons,
+      recommend,
+      weekend
     }
   }
 </script>

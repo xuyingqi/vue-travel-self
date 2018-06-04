@@ -85,6 +85,7 @@
   @import "~common/styles/varibles.styl"
   @import "~common/styles/mixins.styl"
   .icons
+    margin-top: 10px
     width: 100%
     height: 0
     padding-bottom: 50%
@@ -99,7 +100,7 @@
         left: 0
         top: 0
         right: 0
-        bottom: 25%
+        bottom: 35%
         padding-top: 5px
         text-align: center
         .icon-img-content
@@ -107,7 +108,7 @@
       .icon-desc
         position: absolute
         width: 100%
-        bottom: 5px
+        bottom: 10px
         text-align: center
         color: $darkTextColor
         ellipsis()
