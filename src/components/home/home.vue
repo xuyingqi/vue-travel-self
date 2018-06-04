@@ -1,10 +1,10 @@
 <template>
   <div>
-    <header></header>
-    <swiper></swiper>
-    <icons></icons>
-    <recommend></recommend>
-    <weekend></weekend>
+    <v-header :city="city"></v-header>
+    <swiper :swiperList="swiperList"></swiper>
+    <icons :iconList="iconList"></icons>
+    <recommend :recommendList="recommendList"></recommend>
+    <weekend :weekendList="weekendList"></weekend>
   </div>
 </template>
 
@@ -19,6 +19,7 @@
   export default {
     data () {
       return {
+        city: '',
         swiperList: [],
         iconList: [],
         recommendList: [],
@@ -34,16 +35,14 @@
     },
     mounted () {
       this.getHomeInfo()
-      console.log('222')
     },
     methods: {
       getHomeInfo () {
-        console.log('111')
         axios.get('/api/index.json')
           .then((res) => {
-            console.log('333')
             res = res.data
             if (res.ret === true) {
+              this.city = res.data.city
               this.swiperList = res.data.swiperList
               this.iconList = res.data.iconList
               this.recommendList = res.data.recommendList

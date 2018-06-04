@@ -6,6 +6,10 @@ import city from 'components/city/city'
 Vue.use(VueRouter)
 const routes = [
   {
+    path: '/',
+    redirect: 'home'
+  },
+  {
     path: '/home',
     component: home
   },
