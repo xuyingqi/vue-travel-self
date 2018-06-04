@@ -1,9 +1,16 @@
 <template>
-    <div>city</div>
+    <div>
+      <cityHeader></cityHeader>
+    </div>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  import cityHeader from 'components/city/cityHeader/cityHeader'
+  export default {
+    components: {
+      cityHeader
+    }
+  }
 </script>
 
 <style lang="stylus" scoped>
