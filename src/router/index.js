@@ -1,18 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-/* import home from 'components/home/home'
-import list from 'components/list/list' */
+import home from 'components/home/home'
+import city from 'components/city/city'
 
 Vue.use(VueRouter)
 const routes = [
- /* {
+  {
     path: '/home',
     component: home
   },
   {
-    path: '/list',
-    component: list
-  } */
+    path: '/city',
+    component: city
+  }
 ]
 const router = new VueRouter({
   routes
