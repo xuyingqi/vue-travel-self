@@ -3,17 +3,16 @@
       <div class="header-left"><span class="icon-arrow_back"></span></div>
       <div class="header-input"><span class="icon-search"></span>输入城市/景点/游玩主题</div>
       <router-link to="./city">
-        <div class="header-right">{{city}}<span class="icon-arrow_bottom"></span></div>
+        <div class="header-right">{{this.city}}<span class="icon-arrow_bottom"></span></div>
       </router-link>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import {mapState} from 'vuex'
   export default {
-    props: {
-      city: {
-        type: String
-      }
+    computed: {
+      ...mapState(['city'])
     }
   }
 </script>
@@ -42,7 +41,8 @@
       .icon-search
         margin-right: 5px
     .header-right
-      width: 62px
+      min-width: 62px
+      padding-right: 5px
       color: #fff
       .icon-arrow_bottom
         padding-left: 3px

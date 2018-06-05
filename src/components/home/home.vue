@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header :city="city"></v-header>
+    <v-header></v-header>
     <swiper :swiperList="swiperList"></swiper>
     <icons :iconList="iconList"></icons>
     <recommend :recommendList="recommendList"></recommend>
@@ -19,7 +19,6 @@
   export default {
     data () {
       return {
-        city: '',
         swiperList: [],
         iconList: [],
         recommendList: [],
@@ -42,7 +41,6 @@
           .then((res) => {
             res = res.data
             if (res.ret === true) {
-              this.city = res.data.city
               this.swiperList = res.data.swiperList
               this.iconList = res.data.iconList
               this.recommendList = res.data.recommendList

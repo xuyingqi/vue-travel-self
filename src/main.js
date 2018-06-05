@@ -4,6 +4,7 @@ import router from './router'
 // 解决移动端300毫秒延迟
 import fastclick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import store from './store'
 
 import 'common/styles/reset.css'
 import 'common/styles/border.css'
@@ -19,5 +20,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
