@@ -2,7 +2,9 @@
   <div id="app">
     <!--<router-link to="/home">cityHeader</router-link>-->
     <!--<router-link to="/city">city</router-link>-->
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
