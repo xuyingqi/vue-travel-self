@@ -1,39 +1,45 @@
 <template>
-  <scroll class="city-list">
+  <div class="city-list" ref="cityList">
     <div>
-     <div class="area">
-       <div class="title">当前城市</div>
-       <div class="button-list">
-         <div class="button-wrapper">
-           <div class="button">北京</div>
-         </div>
-       </div>
-     </div>
-     <div class="area">
-       <div class="title">热门城市</div>
-       <div class="button-list">
-         <div class="button-wrapper"
-              v-for="hotCity in hotCities"
-              :key="hotCity.id"
-         >
-           <div class="button">{{hotCity.name}}</div>
-         </div>
-     </div>
-     </div>
-     <div class="area">
-       <div v-for="(group, key) in cities" :key="key">
-         <div class="title">{{key}}</div>
-         <div class="item-list" v-for="item in group" :key="item.id">
-           <div class="item border-1px">{{item.name}}</div>
-         </div>
-       </div>
+      <div class="area">
+        <div class="title">当前城市</div>
+        <div class="button-list">
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
+        </div>
+      </div>
+      <div class="area">
+        <div class="title">热门城市</div>
+        <div class="button-list">
+          <div class="button-wrapper"
+               v-for="hotCity in hotCities"
+               :key="hotCity.id"
+          >
+            <div class="button">{{hotCity.name}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="area">
+        <div
+          v-for="(group, key) in cities" :key="key" :ref="key">
+          <div class="title">{{key}}</div>
+          <div
+            class="item-list"
+            v-for="item in group"
+            :key="item.id"
+          >
+            <div class="item border-1px">{{item.name}}</div>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-  </scroll>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import scroll from 'components/city/scroll/scroll'
+  import Bscroll from 'better-scroll'
+
   export default {
     props: {
       cities: {
@@ -41,10 +47,21 @@
       },
       hotCities: {
         type: Array
+      },
+      letter: {
+        type: String
       }
     },
-    components: {
-      scroll
+    mounted () {
+      this.scroll = new Bscroll(this.$refs.cityList)
+    },
+    watch: {
+      letter () {
+        if (this.letter) {
+          const element = this.$refs[this.letter][0]
+          this.scroll.scrollToElement(element, 300)
+        }
+      }
     }
   }
 </script>

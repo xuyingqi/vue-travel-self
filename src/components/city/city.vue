@@ -2,8 +2,12 @@
   <div>
     <cityHeader></cityHeader>
     <citySearch></citySearch>
-    <cityList :cities="cities" :hotCities="hotCities"></cityList>
-    <alphabet :cities="cities"></alphabet>
+    <cityList
+      :cities="cities"
+      :hotCities="hotCities"
+      :letter="letter"
+    ></cityList>
+    <alphabet :cities="cities" @change="changeLetter"></alphabet>
   </div>
 </template>
 
@@ -15,10 +19,11 @@
   import alphabet from 'components/city/Alphabet/Alphabet'
 
   export default {
-    data() {
+    data () {
       return {
         cities: {},
-        hotCities: []
+        hotCities: [],
+        letter: ''
       }
     },
     mounted () {
@@ -31,10 +36,12 @@
             res = res.data
             if (res.ret && res.data) {
               this.cities = res.data.cities
-              console.log(this.cities.key)
               this.hotCities = res.data.hotCities
             }
           })
+      },
+      changeLetter (letter) {
+        this.letter = letter
       }
     },
     components: {
