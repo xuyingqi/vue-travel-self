@@ -1,6 +1,6 @@
 <template>
-  <div class="list">
-   <div>
+  <scroll class="city-list">
+    <div>
      <div class="area">
        <div class="title">当前城市</div>
        <div class="button-list">
@@ -36,19 +36,42 @@
          <div class="item border-1px">A</div>
          <div class="item border-1px">A</div>
        </div>
+       <div class="title">A</div>
+       <div class="item-list">
+         <div class="item border-1px">A</div>
+         <div class="item border-1px">A</div>
+         <div class="item border-1px">A</div>
+       </div>
+       <div class="title">A</div>
+       <div class="item-list">
+         <div class="item border-1px">A</div>
+         <div class="item border-1px">A</div>
+         <div class="item border-1px">A</div>
+       </div>
+       <div class="title">A</div>
+       <div class="item-list">
+         <div class="item border-1px">A</div>
+         <div class="item border-1px">A</div>
+         <div class="item border-1px">A</div>
+       </div>
      </div>
-   </div>
-  </div>
+    </div>
+  </scroll>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  import scroll from 'components/city/scroll/scroll'
+  export default {
+    components: {
+      scroll
+    }
+  }
 </script>
 
 <style lang="stylus" scoped>
   @import '~common/styles/varibles.styl'
   @import '~common/styles/mixins.styl'
-  .list
+  .city-list
     overflow: hidden
     position: absolute
     top: 1.58rem
