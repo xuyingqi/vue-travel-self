@@ -12,49 +12,22 @@
      <div class="area">
        <div class="title">热门城市</div>
        <div class="button-list">
-         <div class="button-wrapper">
-           <div class="button">北京</div>
+         <div class="button-wrapper"
+              v-for="hotCity in hotCities"
+              :key="hotCity.id"
+         >
+           <div class="button">{{hotCity.name}}</div>
          </div>
-       </div>
+     </div>
      </div>
      <div class="area">
-       <div class="title">A</div>
-       <div class="item-list">
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
+       <div v-for="(group, key) in cities" :key="key">
+         <div class="title">{{key}}</div>
+         <div class="item-list" v-for="item in group" :key="item.id">
+           <div class="item border-1px">{{item.name}}</div>
+         </div>
        </div>
-       <div class="title">A</div>
-       <div class="item-list">
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-       </div>
-       <div class="title">A</div>
-       <div class="item-list">
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-       </div>
-       <div class="title">A</div>
-       <div class="item-list">
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-       </div>
-       <div class="title">A</div>
-       <div class="item-list">
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-       </div>
-       <div class="title">A</div>
-       <div class="item-list">
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-         <div class="item border-1px">A</div>
-       </div>
-     </div>
+    </div>
     </div>
   </scroll>
 </template>
@@ -62,6 +35,14 @@
 <script type="text/ecmascript-6">
   import scroll from 'components/city/scroll/scroll'
   export default {
+    props: {
+      cities: {
+        type: Object
+      },
+      hotCities: {
+        type: Array
+      }
+    },
     components: {
       scroll
     }
