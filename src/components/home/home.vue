@@ -38,13 +38,14 @@
     mounted () {
       this.lastCity = this.city
       this.getHomeInfo()
-      this.scroll = new BScroll(this.$refs.scroll)
+      this._initScroll()
     },
     activated () {
       if (this.lastCity !== this.city) {
         this.lastCity = this.city
         this.getHomeInfo()
       }
+      this._initScroll()
     },
     methods: {
       getHomeInfo () {
@@ -58,6 +59,15 @@
               this.weekendList = res.data.weekendList
             }
           })
+      },
+      _initScroll () {
+        if (!this.scroll) {
+          this.scroll = new BScroll(this.$refs.scroll, {
+            click: true
+          })
+        } else {
+          this.scroll.refresh()
+        }
       }
     },
     components: {
