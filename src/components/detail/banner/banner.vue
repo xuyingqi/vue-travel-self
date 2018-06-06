@@ -7,7 +7,7 @@
       <p class="banner-title">大连圣亚海洋世界(AAAA景区)</p>
       <div class="banner-number"><span class="icon-search banner-icon"></span>39</div>
     </div>
-    <gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClose"></gallary>
+    <gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClick"></gallary>
   </div>
 </template>
 
@@ -27,7 +27,7 @@
       handleBannerClick () {
         this.showGallary = true
       },
-      handleGallaryClose () {
+      handleGallaryClick () {
         console.log('11')
         console.log(this.showGallary)
         this.showGallary = false
