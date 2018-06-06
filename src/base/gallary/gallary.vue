@@ -35,7 +35,7 @@
     },
     methods: {
       handleGallaryClick () {
-        this.$emit('close', this.$refs.container)
+        this.$emit('close')
       }
     }
   }

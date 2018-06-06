@@ -7,14 +7,15 @@
       <p class="banner-title">大连圣亚海洋世界(AAAA景区)</p>
       <div class="banner-number"><span class="icon-search banner-icon"></span>39</div>
     </div>
-    <gallary :imgs="imgs" v-show="showGallary" @handleGallaryClose="close"></gallary>
+    <gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClose"></gallary>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import gallary from 'base/gallary/gallary'
+
   export default {
-    data() {
+    data () {
       return {
         imgs: [
           'http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg',
@@ -23,11 +24,14 @@
       }
     },
     methods: {
-      handleBannerClick() {
+      handleBannerClick () {
         this.showGallary = true
       },
-      handleGallaryClose() {
+      handleGallaryClose () {
+        console.log('11')
+        console.log(this.showGallary)
         this.showGallary = false
+        console.log(this.showGallary)
       }
     },
     components: {
