@@ -1,10 +1,14 @@
 <template>
   <div>
     <v-header></v-header>
-    <swiper :swiperList="swiperList"></swiper>
-    <icons :iconList="iconList"></icons>
-    <recommend :recommendList="recommendList"></recommend>
-    <weekend :weekendList="weekendList"></weekend>
+    <div class="scroll" ref="scroll">
+      <div>
+        <swiper :swiperList="swiperList"></swiper>
+        <icons :iconList="iconList"></icons>
+        <recommend :recommendList="recommendList"></recommend>
+        <weekend :weekendList="weekendList"></weekend>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,6 +20,7 @@
   import weekend from 'components/home/weekend/weekend'
   import axios from 'axios'
   import { mapState } from 'vuex'
+  import BScroll from 'better-scroll'
 
   export default {
     data () {
@@ -33,6 +38,7 @@
     mounted () {
       this.lastCity = this.city
       this.getHomeInfo()
+      this.scroll = new BScroll(this.$refs.scroll)
     },
     activated () {
       if (this.lastCity !== this.city) {
@@ -64,6 +70,12 @@
   }
 </script>
 
-<style>
-
+<style lang="stylus" scoped>
+  .scroll
+    position: absolute
+    overflow: hidden
+    left: 0
+    right: 0
+    bottom: 0
+    top: 43px
 </style>
