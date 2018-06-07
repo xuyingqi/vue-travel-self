@@ -7,16 +7,19 @@
       <p class="banner-title">{{sightName}}</p>
       <div class="banner-number"><span class="icon-search banner-icon"></span>39</div>
     </div>
-    <gallary
-      :gallaryImgs="gallaryImgs"
-      v-show="showGallary"
-      @close="handleGallaryClick"
-    ></gallary>
+    <fadeAnimation>
+      <gallary
+        :gallaryImgs="gallaryImgs"
+        v-show="showGallary"
+        @close="handleGallaryClick"
+      ></gallary>
+    </fadeAnimation>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import gallary from 'base/gallary/gallary'
+  import fadeAnimation from 'base/fade/fade'
 
   export default {
     props: {
@@ -44,7 +47,8 @@
       }
     },
     components: {
-      gallary
+      gallary,
+      fadeAnimation
     }
   }
 </script>

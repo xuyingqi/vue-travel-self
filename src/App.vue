@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <!--<router-link to="/home">cityHeader</router-link>-->
-    <!--<router-link to="/city">city</router-link>-->
     <keep-alive exclude="detail">
       <router-view></router-view>
     </keep-alive>
@@ -14,4 +12,5 @@
   }
 </script>
 
-<style></style>
+<style lang="stylus" scoped>
+</style>

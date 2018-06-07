@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="detail">
     <v-header></v-header>
     <banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></banner>
     <list :catagoryList="catagoryList"></list>
@@ -32,15 +32,15 @@
             id: this.$route.params.id
           }
         }).then((res) => {
-            res = res.data
-            if (res.ret === true) {
-              this.sightName = res.data.sightName
-              this.bannerImg = res.data.bannerImg
-              this.gallaryImgs = res.data.gallaryImgs
-              this.catagoryList = res.data.catagoryList
-              console.log(this.catagoryList)
-            }
-          })
+          res = res.data
+          if (res.ret === true) {
+            this.sightName = res.data.sightName
+            this.bannerImg = res.data.bannerImg
+            this.gallaryImgs = res.data.gallaryImgs
+            this.catagoryList = res.data.catagoryList
+            console.log(this.catagoryList)
+          }
+        })
       }
     },
     components: {
