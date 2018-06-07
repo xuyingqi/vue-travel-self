@@ -2,14 +2,14 @@
   <div>
     <div
       class="item"
-      v-for="(item, index) in list"
+      v-for="(item, index) in catagoryList"
       :key="index">
       <div class="item-title">
         <span class="item-title-icon"></span>
         {{item.title}}
       </div>
       <div v-if="item.children" class="item-children">
-        <list :list="item.children"></list>
+        <list :catagoryList="item.children"></list>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
   export default {
     name: 'list', // 用于递归组件
     props: {
-      list: {
+      catagoryList: {
         type: Array
       }
     }

@@ -1,42 +1,47 @@
 <template>
   <div>
     <v-header></v-header>
-    <banner></banner>
-    <list :list="list"></list>
+    <banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></banner>
+    <list :catagoryList="catagoryList"></list>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  // import axios from 'axios'
+  import axios from 'axios'
   import banner from 'components/detail/banner/banner'
   import header from 'components/detail/header/header'
   import list from 'components/detail/list/list'
 
   export default {
-    data() {
+    name: 'detail',
+    data () {
       return {
-        list: [
-          {
-            title: '成人票',
-            children: [{
-              title: '成人三馆联票',
-              children: [
-                {
-                  title: '成人三馆联票-某一连锁店销售'
-                }
-              ]
-            }]
-          }, {
-            title: '学生票'
-          }, {
-            title: '儿童票'
-          }, {
-            title: '特惠票'
-          }
-        ]
+        sightName: '',
+        bannerImg: '',
+        gallaryImgs: [],
+        catagoryList: []
       }
     },
+    mounted () {
+      this.getDetailInfo()
+    },
     methods: {
+      getDetailInfo () {
+        axios.get('/api/detail.json', {
+          params: {
+            id: this.$route.params.id
+          }
+        }).then((res) => {
+            res = res.data
+            if (res.ret === true) {
+              this.sightName = res.data.sightName
+              this.bannerImg = res.data.bannerImg
+              this.gallaryImgs = res.data.gallaryImgs
+              this.catagoryList = res.data.catagoryList
+              console.log(this.catagoryList)
+            }
+          })
+      }
     },
     components: {
       banner,
