@@ -28,9 +28,7 @@
         this.showGallary = true
       },
       handleGallaryClick () {
-        console.log(this.showGallary)
         this.showGallary = false
-        console.log(this.showGallary)
       }
     },
     components: {
