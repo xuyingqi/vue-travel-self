@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @click="handleGallaryClick" ref="container">
+  <div class="container" @click.prevent.stop="handleGallaryClick">
     <div class="wrapper">
       <swiper class="my-swiper" :options="swiperOption">
         <!-- slides -->
@@ -62,9 +62,12 @@
       padding-bottom: 100%
       .my-swiper
         position: absolute
+        left: 0
+        right: 0
         top: 0
         bottom: 0
         .gallary-img
+          display: block
           width: 100%
           height: 100%
         .swiper-pagination

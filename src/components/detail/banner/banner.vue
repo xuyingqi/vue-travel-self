@@ -28,7 +28,6 @@
         this.showGallary = true
       },
       handleGallaryClick () {
-        console.log('11')
         console.log(this.showGallary)
         this.showGallary = false
         console.log(this.showGallary)
