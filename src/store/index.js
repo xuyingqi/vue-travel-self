@@ -6,10 +6,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state,
-  mutations
-  /* actions: {
+  mutations,
+  actions: {
      changeCity (ctx, city) {
        ctx.commit('changeCity', city)
      }
-   }, */
+  }
 })

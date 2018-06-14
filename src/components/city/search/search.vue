@@ -9,8 +9,8 @@
       >
     </div>
     <div
-      v-show="keywords"
       class="search-content"
+      v-show="keywords"
       ref="searchContent"
     >
       <ul>
@@ -21,14 +21,21 @@
           @click="handleCityClick(item.name)"
         >
           {{item.name}}</li>
-        <li class="search-item" v-show="hasNoData">未找到匹配数据</li>
+        <li v-show="hasNoData">
+          <loading></loading>
+        </li>
+        <li class="search-item" v-show="hasNoDatas">未找到匹配数据</li>
       </ul>
+     <!-- <div v-show="!this.list.length">
+        <loading></loading>
+      </div>-->
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
+  import loading from 'components/city/loading/loading'
   import { mapMutations } from 'vuex'
 
   export default {
@@ -41,18 +48,23 @@
       return {
         keywords: '',
         list: [],
+        hasNoDatas: false,
+        hasNoData: false,
         timer: null
       }
     },
     watch: {
       keywords () {
+        this.hasNoData = true
         if (this.timer) {
           clearTimeout(this.timer)
         }
-        if (!this.keywords) {
-          this.list = []
-          return
-        }
+//        if (!this.keywords) {
+//          this.list = []
+//          this.hasNoDatas = true
+//          this.hasNoData = false
+//          return
+//        }
         this.timer = setTimeout(() => {
           const result = []
           for (let i in this.cities) {
@@ -64,16 +76,20 @@
             })
           }
           this.list = result
+          if (this.list.length > 0) {
+            this.hasNoDatas = false
+            this.hasNoData = false
+            return
+          }
+          this.hasNoData = false
+          this.hasNoDatas = true
         }, 100)
       }
     },
-    computed: {
-      hasNoData () {
-        return !this.list.length
-      }
-    },
     mounted () {
-      this.scroll = new BScroll(this.$refs.searchContent)
+      this.scroll = new BScroll(this.$refs.searchContent, {
+        click: true
+      })
     },
     methods: {
       handleCityClick(city) {
@@ -82,6 +98,9 @@
         this.$router.push('/')
       },
       ...mapMutations(['changeCity'])
+    },
+    components: {
+      loading
     }
   }
 </script>
@@ -115,4 +134,9 @@
       padding-left: .2rem
       background: #fff
       color: #666
+  .loading-content
+    position: absolute
+    width: 100%
+    top: 50%
+    transform: translateY(-50%)
 </style>

@@ -29,18 +29,21 @@
             class="item-list"
             v-for="item in group"
             :key="item.id"
-            @click="handleCityClick(item.name)"
           >
-            <div class="item border-1px">{{item.name}}</div>
+            <div class="item" @click="handleCityClick(item.name)">{{item.name}}</div>
           </div>
         </div>
       </div>
+    </div>
+    <div v-show="!hotCities.length" class="loading-container">
+      <loading></loading>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import Bscroll from 'better-scroll'
+  import loading from 'components/city/loading/loading'
   import { mapState, mapMutations } from 'vuex'
 
   export default {
@@ -56,7 +59,7 @@
       }
     },
     mounted () {
-      this.scroll = new Bscroll(this.$refs.cityList)
+      this.scroll = new Bscroll(this.$refs.cityList, {click: true, tap: true})
     },
     watch: {
       letter () {
@@ -79,6 +82,9 @@
         this.$router.push('/')
       },
       ...mapMutations(['changeCity'])
+    },
+    components: {
+      loading
     }
   }
 </script>
@@ -116,4 +122,9 @@
         line-height: .76rem
         padding-left: .2rem
         border-1px(#ccc)
+  .loading-container
+    position: absolute
+    width: 100%
+    top: 50%
+    transform: translateY(-50%)
 </style>
